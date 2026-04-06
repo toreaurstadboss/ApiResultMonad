@@ -1,9 +1,10 @@
-﻿using ApiResultMonad.Lib;
+﻿using System.Net;
+using ApiResultMonad.Lib;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiResultMonad;
 
-public record Todo(int UserId, int Id, string Title, bool Completed);
+file record Todo(int UserId, int Id, string Title, bool Completed);
 
 internal class Program
 {
@@ -20,19 +21,25 @@ internal class Program
         var factory = provider.GetRequiredService<IHttpClientFactory>();
         var httpClient = factory.CreateClient("default");
 
-        const string url = "https://jsonplaceholder.typicode.com/todos/1";
+        const string url = "https://jsonplaceholder.typicode.com/todos/4";
         Console.WriteLine($"Fetching: {url}");
 
         var result = await httpClient.GetJsonAsync<Todo>(url);
 
-        var output = result.Value switch
-        {
-            Success<Todo> s  => $"OK => Id: {s.Data.Id}, Title: \"{s.Data.Title}\", Completed: {s.Data.Completed}",
-            HttpError h      => $"HTTP error {h.StatusCode}: {h.Message}",
-            TransportError t => $"Transport error: {t.Exception.Message}",
-            _                => "Unknown result"
-        };
+        //Note , Completed is a property of the record Todo here and not to be mistaken for 
+        //anything to do with the http request itself not being completed
+        var summary = await result
+            .MapAsync(async todo => todo with { Title = todo.Title.ToUpperInvariant() })
+            .ContinueWith(t => t.Result.Bind(todo =>
+                todo.Completed ? ApiResult.Ok($"Done: {todo.Title} . Raw data: {todo}") : ApiResult.HttpFail<string>(HttpStatusCode.UnprocessableEntity, "Not completed")));
 
-        Console.WriteLine(output);
+
+        Console.WriteLine(summary.Value switch
+        {
+            Success<string> s => s.Data,
+            HttpError h => $"Error {h.StatusCode}: {h.Message}",
+            TransportError t => $"Transport: {t.Exception.Message}",
+            _ => "?"
+        });
     }
 }
