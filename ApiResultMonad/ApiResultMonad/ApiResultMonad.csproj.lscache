@@ -15,7 +15,19 @@ primary
 lastDtbSucceeded
 
 [properties]
+AssemblyName=ApiResultMonad
 CommandLineArgsForDesignTimeEvaluation=-langversion:preview -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=14.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=ApiResultMonad
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>../ApiResultMonad.slnx
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net11.0/ApiResultMonad.dll
+TargetRefPath=<PATH>obj/Debug/net11.0/ref/ApiResultMonad.dll
+TemporaryDependencyNodeTargetIdentifier=net11.0
 
 [commandLineArguments]
 /noconfig
@@ -51,6 +63,7 @@ obj/Debug/net11.0/
 Program.cs
 
 [metadataReferences]
+../ApiResultMonad.Lib/obj/Debug/net11.0/ref/ApiResultMonad.Lib.dll
 <DOTNET>/packs/Microsoft.NETCore.App.Ref/11.0.0-preview.2.26159.112/ref/net11.0/
  Microsoft.CSharp.dll
  Microsoft.VisualBasic.Core.dll
@@ -220,6 +233,20 @@ Program.cs
  System.Xml.XPath.dll
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
+<NUGET>/
+ microsoft.extensions.configuration.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll
+ microsoft.extensions.configuration.binder/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.Binder.dll
+ microsoft.extensions.configuration/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.dll
+ microsoft.extensions.dependencyinjection.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+ microsoft.extensions.dependencyinjection/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.diagnostics.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+ microsoft.extensions.diagnostics/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Diagnostics.dll
+ microsoft.extensions.http/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Http.dll
+ microsoft.extensions.logging.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Logging.Abstractions.dll
+ microsoft.extensions.logging/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Logging.dll
+ microsoft.extensions.options.configurationextensions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll
+ microsoft.extensions.options/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Options.dll
+ microsoft.extensions.primitives/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Primitives.dll
 
 [analyzerReferences]
 <DOTNET>/packs/Microsoft.NETCore.App.Ref/11.0.0-preview.2.26159.112/analyzers/dotnet/cs/
@@ -232,6 +259,9 @@ Program.cs
 <DOTNET>/sdk/11.0.100-preview.2.26159.112/Sdks/Microsoft.NET.Sdk/analyzers/
  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
  Microsoft.CodeAnalysis.NetAnalyzers.dll
+<NUGET>/
+ microsoft.extensions.logging.abstractions/11.0.0-preview.2.26159.112/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll
+ microsoft.extensions.options/11.0.0-preview.2.26159.112/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Options.SourceGeneration.dll
 
 [analyzerConfigFiles]
 <DOTNET>/sdk/11.0.100-preview.2.26159.112/Sdks/Microsoft.NET.Sdk/

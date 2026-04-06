@@ -4,11 +4,11 @@ namespace ApiResultMonad.Lib
 {
 
     /// <summary>
-    /// Represents a succeeded API result that returns a <see cref="Value"/>
+    /// Represents a succeeded API result that returns a <see cref="Data"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Value"></param>
-    public record Success<T>(T Value);
+    /// <param name="Data"></param>
+    public record Success<T>(T Data);
 
     /// <summary>
     /// Represents a HTTP error with <see cref="StatusCode"/> and <paramref name="Message"/>
@@ -40,7 +40,7 @@ namespace ApiResultMonad.Lib
         /// <param name="f"></param>
         /// <returns></returns>
         public ApiResult<TResult> Map<TResult>(Func<T,TResult> f) => Value switch {
-            Success<T> s => new Success<TResult>(f(s.Value)),
+            Success<T> s => new Success<TResult>(f(s.Data)),
             HttpError h => new HttpError(h.StatusCode, h.Message),
             TransportError t => new TransportError(t.Exception),
             _ => new HttpError((int)HttpStatusCode.InternalServerError, "Unhandled error")
@@ -52,7 +52,7 @@ namespace ApiResultMonad.Lib
         /// </summary>
         public async Task<ApiResult<TResult>> MapAsync<TResult>(Func<T,Task<TResult>> f) => Value switch
         {
-            Success<T> s => new Success<TResult>(await f(s.Value).ConfigureAwait(false)),
+            Success<T> s => new Success<TResult>(await f(s.Data).ConfigureAwait(false)),
             HttpError h => new HttpError(h.StatusCode, h.Message),
             TransportError t => new TransportError(t.Exception),
             _ => new HttpError((int)HttpStatusCode.InternalServerError, "Unhandled error")
@@ -65,7 +65,7 @@ namespace ApiResultMonad.Lib
         /// <param name="f"></param>
         /// <returns></returns>
         public ApiResult<TResult> Bind<TResult>(Func<T, ApiResult<TResult>> f) => Value switch {
-            Success<T> s => f(s.Value),
+            Success<T> s => f(s.Data),
             HttpError h => new HttpError(h.StatusCode, h.Message),
             TransportError t => new TransportError(t.Exception),
             _ => new HttpError((int)HttpStatusCode.InternalServerError, "Unhandled error")
@@ -77,7 +77,7 @@ namespace ApiResultMonad.Lib
         /// </summary>
         public async Task<ApiResult<TResult>> BindAsync<TResult>(Func<T,Task<ApiResult<TResult>>> f) => Value switch
         {
-            Success<T> s => await f(s.Value).ConfigureAwait(false),
+            Success<T> s => await f(s.Data).ConfigureAwait(false),
             HttpError h => new HttpError(h.StatusCode, h.Message),
             TransportError t => new TransportError(t.Exception),
             _ => new HttpError((int)HttpStatusCode.InternalServerError, "Unhandled error")
@@ -85,8 +85,17 @@ namespace ApiResultMonad.Lib
 
     }
 
+    /// <summary>
+    /// Helper methods to produce ApiResult
+    /// </summary>
     public static class ApiResult
     {
+        /// <summary>
+        /// Produces 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static ApiResult<T> Ok<T>(T result) => new Success<T>(result);
         public static ApiResult<T> HttpFail<T>(HttpStatusCode statusCode, string message) => new HttpError((int)statusCode, message);
         public static ApiResult<T> TransportFail<T>(Exception exception) => new TransportError(exception); 

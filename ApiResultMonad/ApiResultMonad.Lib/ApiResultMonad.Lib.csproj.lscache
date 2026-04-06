@@ -15,7 +15,19 @@ primary
 lastDtbSucceeded
 
 [properties]
+AssemblyName=ApiResultMonad.Lib
 CommandLineArgsForDesignTimeEvaluation=-langversion:preview -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=14.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=ApiResultMonad.Lib
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>../ApiResultMonad.slnx
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net11.0/ApiResultMonad.Lib.dll
+TargetRefPath=<PATH>obj/Debug/net11.0/ref/ApiResultMonad.Lib.dll
+TemporaryDependencyNodeTargetIdentifier=net11.0
 
 [commandLineArguments]
 /noconfig
@@ -49,6 +61,7 @@ obj/Debug/net11.0/
  .NETCoreApp,Version=v11.0.AssemblyAttributes.cs
  ApiResultMonad.Lib.AssemblyInfo.cs
  ApiResultMonad.Lib.GlobalUsings.g.cs
+RemoteService.cs
 UnionAttribute.cs
 
 [metadataReferences]

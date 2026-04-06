@@ -15,7 +15,19 @@ primary
 lastDtbSucceeded
 
 [properties]
+AssemblyName=ApiResultMonad.Tests
 CommandLineArgsForDesignTimeEvaluation=-langversion:preview -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=14.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=ApiResultMonad.Tests
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>../ApiResultMonad.slnx
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net11.0/ApiResultMonad.Tests.dll
+TargetRefPath=<PATH>obj/Debug/net11.0/ref/ApiResultMonad.Tests.dll
+TemporaryDependencyNodeTargetIdentifier=net11.0
 
 [commandLineArguments]
 /noconfig
@@ -45,13 +57,16 @@ CommandLineArgsForDesignTimeEvaluation=-langversion:preview -define:TRACE
 
 [sourceFiles]
 <NUGET>/microsoft.net.test.sdk/17.14.0/build/net8.0/Microsoft.NET.Test.Sdk.Program.cs
+ApiResultMonadIntegrationTests.cs
+ApiResultMonadUnitTests.cs
+FakeHttpMessageHandler.cs
 obj/Debug/net11.0/
  .NETCoreApp,Version=v11.0.AssemblyAttributes.cs
  ApiResultMonad.Tests.AssemblyInfo.cs
  ApiResultMonad.Tests.GlobalUsings.g.cs
-UnitTest1.cs
 
 [metadataReferences]
+../ApiResultMonad.Lib/obj/Debug/net11.0/ref/ApiResultMonad.Lib.dll
 <DOTNET>/packs/Microsoft.NETCore.App.Ref/11.0.0-preview.2.26159.112/ref/net11.0/
  Microsoft.CSharp.dll
  Microsoft.VisualBasic.Core.dll
@@ -222,8 +237,22 @@ UnitTest1.cs
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
 <NUGET>/
+ fluentassertions/8.9.0/lib/net6.0/FluentAssertions.dll
  microsoft.applicationinsights/2.22.0/lib/netstandard2.0/Microsoft.ApplicationInsights.dll
  microsoft.codecoverage/17.14.0/lib/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll
+ microsoft.extensions.configuration.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll
+ microsoft.extensions.configuration.binder/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.Binder.dll
+ microsoft.extensions.configuration/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Configuration.dll
+ microsoft.extensions.dependencyinjection.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+ microsoft.extensions.dependencyinjection/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.diagnostics.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+ microsoft.extensions.diagnostics/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Diagnostics.dll
+ microsoft.extensions.http/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Http.dll
+ microsoft.extensions.logging.abstractions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Logging.Abstractions.dll
+ microsoft.extensions.logging/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Logging.dll
+ microsoft.extensions.options.configurationextensions/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll
+ microsoft.extensions.options/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Options.dll
+ microsoft.extensions.primitives/11.0.0-preview.2.26159.112/lib/net11.0/Microsoft.Extensions.Primitives.dll
  microsoft.testing.extensions.telemetry/1.5.3/lib/net9.0/Microsoft.Testing.Extensions.Telemetry.dll
  microsoft.testing.extensions.trxreport.abstractions/1.5.3/lib/net9.0/Microsoft.Testing.Extensions.TrxReport.Abstractions.dll
  microsoft.testing.extensions.vstestbridge/1.5.3/lib/net9.0/Microsoft.Testing.Extensions.VSTestBridge.dll
@@ -254,9 +283,12 @@ UnitTest1.cs
 <DOTNET>/sdk/11.0.100-preview.2.26159.112/Sdks/Microsoft.NET.Sdk/analyzers/
  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
  Microsoft.CodeAnalysis.NetAnalyzers.dll
-<NUGET>/nunit.analyzers/4.7.0/analyzers/dotnet/cs/
- nunit.analyzers.codefixes.dll
- nunit.analyzers.dll
+<NUGET>/
+ microsoft.extensions.logging.abstractions/11.0.0-preview.2.26159.112/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll
+ microsoft.extensions.options/11.0.0-preview.2.26159.112/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Options.SourceGeneration.dll
+ nunit.analyzers/4.7.0/analyzers/dotnet/cs/
+  nunit.analyzers.codefixes.dll
+  nunit.analyzers.dll
 
 [analyzerConfigFiles]
 <DOTNET>/sdk/11.0.100-preview.2.26159.112/Sdks/Microsoft.NET.Sdk/
